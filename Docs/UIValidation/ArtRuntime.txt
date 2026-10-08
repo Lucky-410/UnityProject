@@ -1,0 +1,17 @@
+PASS UIManager 单例
+PASS 资源加载完成且无错误
+PASS 玩家已就绪
+Scene=GameScene; loading=False; blocked=False; inventory=True; time=1
+MainMenu=False
+Controls=False
+HUD=True
+Inventory=False
+Boss=False
+DamageNumbers=True
+GameOverlay=False
+Notice=False
+PickupPrompt=False
+Loading=False
+PASS HUD 正常显示
+背包显示且可选择 2 号装备栏=True
+背包关闭后玩家输入启用=True

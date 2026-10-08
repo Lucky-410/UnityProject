@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd49f5d5dd456bd4682f0a05849734f3, type: 3}
+  m_Name: DragonKnightAttacks
+  m_EditorClassIdentifier: Assembly-CSharp::Relicfall.Boss.BossAttackSettings
+  slashWindup: 0.3
+  enragedSlashWindup: 0.2
+  flameWindup: 0.48
+  enragedFlameWindup: 0.33
+  slashDuration: 0.38
+  flameDuration: 0.85
+  flameInterval: 0.23
+  slashDamage: 17
+  enragedSlashDamage: 22
+  flameDamage: 7
+  enragedFlameDamage: 9
+  slashReach: 0.9
+  flameReach: 1.85
+  enragedFlameReach: 2.25

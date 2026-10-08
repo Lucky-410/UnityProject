@@ -1,0 +1,52 @@
+# Unity generated files
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Bb]uild/
+/[Bb]uilds/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# IDE generated files
+/.vs/
+/.vsconfig
+/.idea/
+/.vscode/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+/sysinfo.txt
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Generated Addressables content and build reports
+/ServerData/
+/Assets/StreamingAssets/aa/
+/Assets/AddressableAssetsData/*/*.bin*
+/Assets/AddressableAssetsData/*/*.json*
+/Assets/AddressableAssetsData/*/addressables_content_state.bin*
+/Assets/AddressableAssetsData/BuildReports/
+
+# Local save files and diagnostic artifacts
+*.tmp
+*.bak
+relicfall-save.json
+/Docs/ArchitectureValidation/save-*.json
+/Docs/ArchitectureValidation/legacy-v1.json
+/Docs/UIValidation/Recovery*.json
+/Docs/UIValidation/PriorAutomationFailure.txt
+
+# Preserve Unity .meta files and third-party credits/licenses.

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Relicfall Preload
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Relicfall Preload
+  m_GUID: 58e4f340a97502245848a6317f29843b
+  m_SerializeEntries:
+  - m_GUID: 09bccf3e1a23bb34c8670429b7a4bf01
+    m_Address: ProjectileImpactVFX
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game-preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87a35bd960bc77840b44aedb243e601a
+    m_Address: DragonKnightBoss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game-preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99d837f091f1d1642bb9632dc27be0c1
+    m_Address: DemonGunner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game-preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6b007b7a2e6500419201ae768d30b6e
+    m_Address: DemonSwordsman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game-preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7fc5da842591b340adee22c8a06d310
+    m_Address: DemonProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game-preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b52ca75e1dc2af8458fae022f066fa77
+    m_Address: WorldItem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game-preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 03638a4e9547e7648bf98fd9054a7577, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e09205918cffeb940bfabc633fe9ddfd, type: 2}
+    - {fileID: 11400000, guid: 5c36019b0adc8da40920da4518e28fdc, type: 2}
+    m_SchemaDisplayOrder:
+    - Relicfall Preload_ContentUpdateGroupSchema
+    - Relicfall Preload_BundledAssetGroupSchema
+  m_IncludeInBuild: 1
+  m_IncludeInBuildMigrated: 1

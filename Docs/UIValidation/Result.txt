@@ -1,0 +1,12 @@
+Recovery verification — 2026-10-08
+Fixed: removed persistent PlayMode validation callbacks and unsafe automatic scene restoration.
+Fixed: reset Time.timeScale to 1 at the beginning of each play session, including disabled domain reload.
+PASS: ordinary direct GameScene start remains in play mode.
+PASS: ordinary BootScene -> MainMenuScene -> GameScene transition completes without loading error.
+PASS: 12 enemies and 4 world items are present; player animation sprites are assigned.
+PASS: UI prefab, background, and three UGUI style sprite assets load successfully.
+PASS: one UIManager; gameplay unblocked, input component and InputActionMap enabled; timeScale=1.
+PASS: opening inventory disables input; closing restores input without stopping gameplay.
+PASS: movement logic changes player X from -3.80 to -1.71 in a one-second physics check.
+Temporary diagnostic script removed from Assets after verification.
+Evidence: RecoveryFromBoot.json, RecoveryInventoryOpen.json, RecoveryMovement.txt, Recovery.png.

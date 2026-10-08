@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dd6a17db10dc4478dfd1cd335ff87f, type: 3}
+  m_Name: SteelSword
+  m_EditorClassIdentifier: Assembly-CSharp::Relicfall.Combat.WeaponData
+  weaponName: Steel Sword
+  stableId: 521da3bec349e3548b8af965bfd8da17
+  legacyName: SteelSword
+  icon: {fileID: 407978202651327386, guid: ef69ce19b2fbfe24eac37f8b48c26b82, type: 3}
+  worldSprite: {fileID: 407978202651327386, guid: ef69ce19b2fbfe24eac37f8b48c26b82, type: 3}
+  equippedSprite: {fileID: 407978202651327386, guid: ef69ce19b2fbfe24eac37f8b48c26b82, type: 3}
+  damage: 14
+  attackSpeed: 1.15
+  attackRange: 0.42
+  knockback: 1.6
+  weaponType: 0
+  hitVFX: {fileID: 0}
+  animatorOverride: {fileID: 0}

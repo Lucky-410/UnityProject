@@ -1,0 +1,1755 @@
+fileFormatVersion: 2
+guid: 16081a4748b8e8948ba4e28e5e3f2c46
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8476023874046814385
+    second: caslePropsSheet_0
+  - first:
+      213: 1313244338184965236
+    second: caslePropsSheet_1
+  - first:
+      213: -8213642910555375008
+    second: caslePropsSheet_2
+  - first:
+      213: -4814672530718263623
+    second: caslePropsSheet_3
+  - first:
+      213: 7523854139080420575
+    second: caslePropsSheet_4
+  - first:
+      213: 2785769062057024308
+    second: caslePropsSheet_5
+  - first:
+      213: -2236434204892522527
+    second: caslePropsSheet_6
+  - first:
+      213: 8271630918013259244
+    second: caslePropsSheet_7
+  - first:
+      213: -2159678934272162731
+    second: caslePropsSheet_8
+  - first:
+      213: 2825782472543635160
+    second: caslePropsSheet_9
+  - first:
+      213: -6379518500536576630
+    second: caslePropsSheet_10
+  - first:
+      213: -1203129624608259988
+    second: caslePropsSheet_11
+  - first:
+      213: 4978352061792857174
+    second: caslePropsSheet_12
+  - first:
+      213: 605128421232913928
+    second: caslePropsSheet_13
+  - first:
+      213: -4341130794209051578
+    second: caslePropsSheet_14
+  - first:
+      213: 47281030299668334
+    second: caslePropsSheet_15
+  - first:
+      213: -3191331174701785940
+    second: caslePropsSheet_16
+  - first:
+      213: 4041606247814408696
+    second: caslePropsSheet_17
+  - first:
+      213: 3399875808781812004
+    second: caslePropsSheet_18
+  - first:
+      213: -466649574114941081
+    second: caslePropsSheet_19
+  - first:
+      213: 8564879109763586956
+    second: caslePropsSheet_20
+  - first:
+      213: 8524329923172081359
+    second: caslePropsSheet_21
+  - first:
+      213: -2311828347807968364
+    second: caslePropsSheet_22
+  - first:
+      213: 88830861191919284
+    second: caslePropsSheet_23
+  - first:
+      213: -1879739743320807587
+    second: caslePropsSheet_24
+  - first:
+      213: -2734259745186948155
+    second: caslePropsSheet_25
+  - first:
+      213: -5828695577360154358
+    second: caslePropsSheet_26
+  - first:
+      213: 5463206617953648545
+    second: caslePropsSheet_27
+  - first:
+      213: -8408237547546357113
+    second: caslePropsSheet_28
+  - first:
+      213: 3218185913507435869
+    second: caslePropsSheet_29
+  - first:
+      213: 5249920250409019090
+    second: caslePropsSheet_30
+  - first:
+      213: 4977522639313740335
+    second: caslePropsSheet_31
+  - first:
+      213: -354799203517203916
+    second: caslePropsSheet_32
+  - first:
+      213: 2098213573043009316
+    second: caslePropsSheet_33
+  - first:
+      213: 6216328593364748961
+    second: caslePropsSheet_34
+  - first:
+      213: -7538581738968925128
+    second: caslePropsSheet_35
+  - first:
+      213: -2516045267097707079
+    second: caslePropsSheet_36
+  - first:
+      213: 5008196778269216272
+    second: caslePropsSheet_37
+  - first:
+      213: -5484231333711650270
+    second: caslePropsSheet_38
+  - first:
+      213: 5087112139298097798
+    second: caslePropsSheet_39
+  - first:
+      213: 3190114329974329320
+    second: caslePropsSheet_40
+  - first:
+      213: 4016539019621948902
+    second: caslePropsSheet_41
+  - first:
+      213: 1219166356945842183
+    second: caslePropsSheet_42
+  - first:
+      213: -2116476740456698842
+    second: caslePropsSheet_43
+  - first:
+      213: -7379768528070705860
+    second: caslePropsSheet_44
+  - first:
+      213: 6238765762962513218
+    second: caslePropsSheet_45
+  - first:
+      213: 904000360032397032
+    second: caslePropsSheet_46
+  - first:
+      213: 1199294209110709463
+    second: caslePropsSheet_47
+  - first:
+      213: 1227397504922115504
+    second: caslePropsSheet_48
+  - first:
+      213: -1342557974174041814
+    second: caslePropsSheet_49
+  - first:
+      213: 8327595017240705188
+    second: caslePropsSheet_50
+  - first:
+      213: -266710894487068126
+    second: caslePropsSheet_51
+  - first:
+      213: -6659323148000911555
+    second: caslePropsSheet_52
+  - first:
+      213: 6327190057570149984
+    second: caslePropsSheet_53
+  - first:
+      213: -3134900205392545115
+    second: caslePropsSheet_54
+  - first:
+      213: 8750051526668838354
+    second: caslePropsSheet_55
+  - first:
+      213: 3657771057110559838
+    second: caslePropsSheet_56
+  - first:
+      213: 6089393446732830915
+    second: caslePropsSheet_57
+  - first:
+      213: 4727379741102368541
+    second: caslePropsSheet_58
+  - first:
+      213: -662506106455197455
+    second: caslePropsSheet_59
+  - first:
+      213: 1894563324910195759
+    second: caslePropsSheet_60
+  - first:
+      213: -1755729474284537359
+    second: caslePropsSheet_61
+  - first:
+      213: -6562770962339147773
+    second: caslePropsSheet_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: caslePropsSheet_0
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 271
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4795b7c13d1f5a80800000000000000
+      internalID: -8476023874046814385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 272
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ccec884c4993210800000000000000
+      internalID: 1313244338184965236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 273
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06af0746a47430e80800000000000000
+      internalID: -8213642910555375008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 271
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6f4b0b7d8de2db0800000000000000
+      internalID: -4814672530718263623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 271
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcadb5f9791a6860800000000000000
+      internalID: 7523854139080420575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_5
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 271
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b9e2ac33a09a620800000000000000
+      internalID: 2785769062057024308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_6
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 271
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e719d590f696f0e0800000000000000
+      internalID: -2236434204892522527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_7
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 272
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced8155be7cbac270800000000000000
+      internalID: 8271630918013259244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_8
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 273
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55440d5a3774702e0800000000000000
+      internalID: -2159678934272162731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_9
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 271
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d60d78ef22373720800000000000000
+      internalID: 2825782472543635160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_10
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 271
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a851c7159b56777a0800000000000000
+      internalID: -6379518500536576630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_11
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 271
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60c97a1bff9d4fe0800000000000000
+      internalID: -1203129624608259988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_12
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 271
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c2ff1e2d8a61540800000000000000
+      internalID: 4978352061792857174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_13
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 272
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ea41fc719d56800800000000000000
+      internalID: 605128421232913928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_14
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 273
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64cf8affa8431c3c0800000000000000
+      internalID: -4341130794209051578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_15
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 271
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f40a7b8d9f7a000800000000000000
+      internalID: 47281030299668334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 271
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac154b743d16b3d0800000000000000
+      internalID: -3191331174701785940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 271
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f92af2187ba61830800000000000000
+      internalID: 4041606247814408696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 271
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42142e6e809ce2f20800000000000000
+      internalID: 3399875808781812004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 272
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767aa4c4fa02689f0800000000000000
+      internalID: -466649574114941081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 273
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b5f91fb209cd670800000000000000
+      internalID: 8564879109763586956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 271
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce97eab6e08c4670800000000000000
+      internalID: 8524329923172081359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_22
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 271
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4935a33cd5cbaefd0800000000000000
+      internalID: -2311828347807968364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 271
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6bf6692379b3100800000000000000
+      internalID: 88830861191919284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_24
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 271
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57ed29a9a2d9e5e0800000000000000
+      internalID: -1879739743320807587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 271
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb5b7c9f35fd0ad0800000000000000
+      internalID: -2734259745186948155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_26
+      rect:
+        serializedVersion: 2
+        x: 2383
+        y: 271
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01ce8f01405c1fa0800000000000000
+      internalID: -5828695577360154358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_27
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 208
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1afb0b5497531db40800000000000000
+      internalID: 5463206617953648545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_28
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 207
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782d56fcf70ff4b80800000000000000
+      internalID: -8408237547546357113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_29
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d55d6c3a90b49ac20800000000000000
+      internalID: 3218185913507435869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_30
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d662c807a67bd840800000000000000
+      internalID: 5249920250409019090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_31
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 143
+        width: 33
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22a2c9e776b31540800000000000000
+      internalID: 4977522639313740335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_32
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 208
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43af3c31100831bf0800000000000000
+      internalID: -354799203517203916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_33
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427b12cb02a5e1d10800000000000000
+      internalID: 2098213573043009316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_34
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa0c9e8be5d44650800000000000000
+      internalID: 6216328593364748961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_35
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 208
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83cb28a79d3916790800000000000000
+      internalID: -7538581738968925128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_36
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd96dff826351dd0800000000000000
+      internalID: -2516045267097707079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_37
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e0efd6f60b08540800000000000000
+      internalID: 5008196778269216272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_38
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 208
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222ec00a8a814e3b0800000000000000
+      internalID: -5484231333711650270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_39
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 207
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ac07bb98d099640800000000000000
+      internalID: 5087112139298097798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_40
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 208
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8efc007c410954c20800000000000000
+      internalID: 3190114329974329320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_41
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 159
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eddf0335fc9db730800000000000000
+      internalID: 4016539019621948902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_42
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 159
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7003ddb97595be010800000000000000
+      internalID: 1219166356945842183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_43
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 159
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ca3bd3e93c0a2e0800000000000000
+      internalID: -2116476740456698842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_44
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 159
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dfcb79f9bc59990800000000000000
+      internalID: -7379768528070705860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_45
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 159
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ddf32386c849650800000000000000
+      internalID: 6238765762962513218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_46
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 159
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e66e80b987ab8c00800000000000000
+      internalID: 904000360032397032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_47
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 111
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d41a33aabfb4a010800000000000000
+      internalID: 1199294209110709463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_48
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 111
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd55171787980110800000000000000
+      internalID: 1227397504922115504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_49
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 111
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a29fcfab2a64e5de0800000000000000
+      internalID: -1342557974174041814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_50
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 111
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a8f1f3fb8f819370800000000000000
+      internalID: 8327595017240705188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_51
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 111
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2222f54cad37c4cf0800000000000000
+      internalID: -266710894487068126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_52
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 127
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f9ed621e45593a0800000000000000
+      internalID: -6659323148000911555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_53
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 127
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0662adf95d1bec750800000000000000
+      internalID: 6327190057570149984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_54
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 127
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa37436fd89e74d0800000000000000
+      internalID: -3134900205392545115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_55
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 79
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5e575f08d6e6970800000000000000
+      internalID: 8750051526668838354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_56
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 79
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ca7c0956303c230800000000000000
+      internalID: 3657771057110559838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_57
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c81a1aa31fd18450800000000000000
+      internalID: 6089393446732830915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_58
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 47
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17e8cae3d60b9140800000000000000
+      internalID: 4727379741102368541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_59
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 47
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8f53fc43e4ec6f0800000000000000
+      internalID: -662506106455197455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_60
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 47
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2451c16e47da4a10800000000000000
+      internalID: 1894563324910195759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_61
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 47
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9369b685562a7e0800000000000000
+      internalID: -1755729474284537359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caslePropsSheet_62
+      rect:
+        serializedVersion: 2
+        x: 2162
+        y: 47
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300d68fa49a5ce4a0800000000000000
+      internalID: -6562770962339147773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      caslePropsSheet_0: -8476023874046814385
+      caslePropsSheet_1: 1313244338184965236
+      caslePropsSheet_10: -6379518500536576630
+      caslePropsSheet_11: -1203129624608259988
+      caslePropsSheet_12: 4978352061792857174
+      caslePropsSheet_13: 605128421232913928
+      caslePropsSheet_14: -4341130794209051578
+      caslePropsSheet_15: 47281030299668334
+      caslePropsSheet_16: -3191331174701785940
+      caslePropsSheet_17: 4041606247814408696
+      caslePropsSheet_18: 3399875808781812004
+      caslePropsSheet_19: -466649574114941081
+      caslePropsSheet_2: -8213642910555375008
+      caslePropsSheet_20: 8564879109763586956
+      caslePropsSheet_21: 8524329923172081359
+      caslePropsSheet_22: -2311828347807968364
+      caslePropsSheet_23: 88830861191919284
+      caslePropsSheet_24: -1879739743320807587
+      caslePropsSheet_25: -2734259745186948155
+      caslePropsSheet_26: -5828695577360154358
+      caslePropsSheet_27: 5463206617953648545
+      caslePropsSheet_28: -8408237547546357113
+      caslePropsSheet_29: 3218185913507435869
+      caslePropsSheet_3: -4814672530718263623
+      caslePropsSheet_30: 5249920250409019090
+      caslePropsSheet_31: 4977522639313740335
+      caslePropsSheet_32: -354799203517203916
+      caslePropsSheet_33: 2098213573043009316
+      caslePropsSheet_34: 6216328593364748961
+      caslePropsSheet_35: -7538581738968925128
+      caslePropsSheet_36: -2516045267097707079
+      caslePropsSheet_37: 5008196778269216272
+      caslePropsSheet_38: -5484231333711650270
+      caslePropsSheet_39: 5087112139298097798
+      caslePropsSheet_4: 7523854139080420575
+      caslePropsSheet_40: 3190114329974329320
+      caslePropsSheet_41: 4016539019621948902
+      caslePropsSheet_42: 1219166356945842183
+      caslePropsSheet_43: -2116476740456698842
+      caslePropsSheet_44: -7379768528070705860
+      caslePropsSheet_45: 6238765762962513218
+      caslePropsSheet_46: 904000360032397032
+      caslePropsSheet_47: 1199294209110709463
+      caslePropsSheet_48: 1227397504922115504
+      caslePropsSheet_49: -1342557974174041814
+      caslePropsSheet_5: 2785769062057024308
+      caslePropsSheet_50: 8327595017240705188
+      caslePropsSheet_51: -266710894487068126
+      caslePropsSheet_52: -6659323148000911555
+      caslePropsSheet_53: 6327190057570149984
+      caslePropsSheet_54: -3134900205392545115
+      caslePropsSheet_55: 8750051526668838354
+      caslePropsSheet_56: 3657771057110559838
+      caslePropsSheet_57: 6089393446732830915
+      caslePropsSheet_58: 4727379741102368541
+      caslePropsSheet_59: -662506106455197455
+      caslePropsSheet_6: -2236434204892522527
+      caslePropsSheet_60: 1894563324910195759
+      caslePropsSheet_61: -1755729474284537359
+      caslePropsSheet_62: -6562770962339147773
+      caslePropsSheet_7: 8271630918013259244
+      caslePropsSheet_8: -2159678934272162731
+      caslePropsSheet_9: 2825782472543635160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+PASS UGUI 使用素材 Base Bg 1
+PASS UGUI 使用素材 Base Bg 3
+PASS UGUI 使用素材 Header
+PASS UGUI 使用素材 Progress Bar Top
+PASS UGUI 使用素材 Round Bg B
+PASS UGUI 使用素材 Small Bg
+PASS UGUI 使用素材 Icons/Heart
+PASS UGUI 使用素材 Icons/Energy
+PASS 平台复合碰撞器接入效应器
+PASS 实体地形保留双向碰撞
+PASS 从下方穿过真实 Tilemap 平台
+PASS 向上穿越期间不误判脚部支撑
+PASS 从上方落地并识别支撑；脚底=1.616
+PASS 高处下落稳定停在平台顶部
+PASS 从侧面穿过平台边缘；X=10.700

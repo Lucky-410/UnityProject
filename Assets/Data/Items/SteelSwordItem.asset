@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52947e4d12ee674995872fc05d92aca, type: 3}
+  m_Name: SteelSwordItem
+  m_EditorClassIdentifier: Assembly-CSharp::Relicfall.Items.ItemData
+  displayName: "\u94A2\u5251"
+  stableId: f1f1f19e5deea4748b91294154f4625b
+  legacyName: SteelSwordItem
+  kind: 0
+  icon: {fileID: 407978202651327386, guid: ef69ce19b2fbfe24eac37f8b48c26b82, type: 3}
+  worldSprite: {fileID: 407978202651327386, guid: ef69ce19b2fbfe24eac37f8b48c26b82, type: 3}
+  maxStack: 1
+  weapon: {fileID: 11400000, guid: 521da3bec349e3548b8af965bfd8da17, type: 2}
+  healAmount: 0

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52947e4d12ee674995872fc05d92aca, type: 3}
+  m_Name: RedPotion
+  m_EditorClassIdentifier: Assembly-CSharp::Relicfall.Items.ItemData
+  displayName: "\u751F\u547D\u836F\u6C34"
+  stableId: 4a35addb1a646e1448362a52179ab676
+  legacyName: RedPotion
+  kind: 1
+  icon: {fileID: 7047984744609306578, guid: 55d46b002745acf4a9d0c2f16329c99e, type: 3}
+  worldSprite: {fileID: 7047984744609306578, guid: 55d46b002745acf4a9d0c2f16329c99e, type: 3}
+  maxStack: 9
+  weapon: {fileID: 0}
+  healAmount: 35

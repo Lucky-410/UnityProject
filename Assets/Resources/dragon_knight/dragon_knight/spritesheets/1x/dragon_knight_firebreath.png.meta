@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 624505f0a969e3547a8bff5d03b66c50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7491555205939000990
+    second: dragon_knight_firebreath_0
+  - first:
+      213: 3405620953501288002
+    second: dragon_knight_firebreath_1
+  - first:
+      213: 4408673019964958192
+    second: dragon_knight_firebreath_2
+  - first:
+      213: 8668377536312632361
+    second: dragon_knight_firebreath_3
+  - first:
+      213: -3756393572518738828
+    second: dragon_knight_firebreath_4
+  - first:
+      213: -2147386874731192945
+    second: dragon_knight_firebreath_5
+  - first:
+      213: -1895124109701925897
+    second: dragon_knight_firebreath_6
+  - first:
+      213: -8209028882748947365
+    second: dragon_knight_firebreath_7
+  - first:
+      213: -3655348288342558488
+    second: dragon_knight_firebreath_8
+  - first:
+      213: 5724934727089164683
+    second: dragon_knight_firebreath_9
+  - first:
+      213: -5252983774321578728
+    second: dragon_knight_firebreath_10
+  - first:
+      213: 4518968024865049273
+    second: dragon_knight_firebreath_11
+  - first:
+      213: -330937881272628610
+    second: dragon_knight_firebreath_12
+  - first:
+      213: 6749724028062409148
+    second: dragon_knight_firebreath_13
+  - first:
+      213: 5903259266971790090
+    second: dragon_knight_firebreath_14
+  - first:
+      213: -4184959268926976802
+    second: dragon_knight_firebreath_15
+  - first:
+      213: -2134924436115233397
+    second: dragon_knight_firebreath_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 33
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e96f83194c957f760800000000000000
+      internalID: 7491555205939000990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 33
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2464215a632334f20800000000000000
+      internalID: 3405620953501288002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_2
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 0
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f52cd5e0c0ce2d30800000000000000
+      internalID: 4408673019964958192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 0
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924e3e631734c4870800000000000000
+      internalID: 8668377536312632361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_4
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 0
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 474c571b2fb9edbc0800000000000000
+      internalID: -3756393572518738828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_5
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 0
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d9f48c303f232e0800000000000000
+      internalID: -2147386874731192945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_6
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f330fbb9aa23b5e0800000000000000
+      internalID: -1895124109701925897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_7
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54c3d479bba31e80800000000000000
+      internalID: -8209028882748947365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_8
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 0
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8720f3918954dc0800000000000000
+      internalID: -3655348288342558488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_9
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 0
+        width: 39
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8192726dcd037f40800000000000000
+      internalID: 5724934727089164683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_10
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 0
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81deba8b617a917b0800000000000000
+      internalID: -5252983774321578728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_11
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba0e61e97996be30800000000000000
+      internalID: 4518968024865049273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_12
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 0
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a460810c5486bf0800000000000000
+      internalID: -330937881272628610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_13
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb12490fd36dbad50800000000000000
+      internalID: 6749724028062409148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_14
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 0
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0be2e8c6079ce150800000000000000
+      internalID: 5903259266971790090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_15
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 14
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc0120c7b90ce5c0800000000000000
+      internalID: -4184959268926976802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon_knight_firebreath_16
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 0
+        width: 74
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85ec0369893f52e0800000000000000
+      internalID: -2134924436115233397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dragon_knight_firebreath_0: 7491555205939000990
+      dragon_knight_firebreath_1: 3405620953501288002
+      dragon_knight_firebreath_10: -5252983774321578728
+      dragon_knight_firebreath_11: 4518968024865049273
+      dragon_knight_firebreath_12: -330937881272628610
+      dragon_knight_firebreath_13: 6749724028062409148
+      dragon_knight_firebreath_14: 5903259266971790090
+      dragon_knight_firebreath_15: -4184959268926976802
+      dragon_knight_firebreath_16: -2134924436115233397
+      dragon_knight_firebreath_2: 4408673019964958192
+      dragon_knight_firebreath_3: 8668377536312632361
+      dragon_knight_firebreath_4: -3756393572518738828
+      dragon_knight_firebreath_5: -2147386874731192945
+      dragon_knight_firebreath_6: -1895124109701925897
+      dragon_knight_firebreath_7: -8209028882748947365
+      dragon_knight_firebreath_8: -3655348288342558488
+      dragon_knight_firebreath_9: 5724934727089164683
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
