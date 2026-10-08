@@ -1,0 +1,29 @@
+PASS boot scene loaded main menu
+PASS game save controller initialized
+PASS new game contains 12 living enemy records
+PASS enemy killed through normal damage
+PASS death recorded before corpse recycling
+PASS corpse returned to pool
+PASS death remains after pooling
+PASS write test save file
+PASS death flag survives JSON serialization
+PASS 24 independently identified stress enemies spawned
+PASS excess pooled corpses destroyed by retained capacity
+PASS destroyed corpses retain independent death records
+PASS all dead enemies skipped on restoration
+PASS new game clears prior death registry
+PASS older version 2 zero-health records remain compatible
+PASS return to menu accepted
+PASS returned to menu
+PASS load entry requests saved progress before scene Start
+PASS continue journey loaded game
+PASS continue journey spawns only 11 survivors
+PASS killed enemy is not respawned after scene reload
+PASS saving again retains skipped enemy death record
+PASS second save and load retain death flag
+PASS death menu clearly offers checkpoint load
+PASS load entry requests saved progress before scene Start
+PASS death retry restores survivors instead of starting a new game
+PASS death retry retains defeated enemy progress
+PASS no runtime errors
+SUCCESS 28 checks, 0 runtime errors

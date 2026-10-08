@@ -22,6 +22,7 @@ namespace Relicfall.Save
     {
         public string id;
         public int health;
+        public bool defeated;
         public Vector3 position;
     }
     [Serializable]

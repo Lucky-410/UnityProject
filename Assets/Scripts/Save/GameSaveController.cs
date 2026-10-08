@@ -82,6 +82,11 @@ namespace Relicfall.Save
                 ShowFeedback("当前无法保存进度");
                 return false;
             }
+            if (enemySpawner != null && !enemySpawner.HasSpawned)
+            {
+                ShowFeedback("场景正在初始化，稍后再保存");
+                return false;
+            }
             bool result = JsonSaveManager.Write(CaptureProgress());
             ShowFeedback(result ? "进度已保存" : "保存失败，请查看控制台");
             return result;

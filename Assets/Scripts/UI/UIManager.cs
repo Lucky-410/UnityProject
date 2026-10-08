@@ -180,7 +180,7 @@ namespace Relicfall.UI
                 UguiTheme.Pale, TextAnchor.MiddleCenter);
             pauseContinue = UguiTheme.Button(panel, "Continue", 86, 192, 328, 46, "继续游戏", () => SetOverlay(GameOverlay.None));
             saveButton = UguiTheme.Button(panel, "Save", 86, 245, 328, 46, "保存进度", () => GameSaveController.Instance?.SaveNow());
-            restartButton = UguiTheme.Button(panel, "Restart", 86, 298, 328, 46, "重新开始", () => Transition("GameScene"));
+            restartButton = UguiTheme.Button(panel, "Restart", 86, 298, 328, 46, "重新开始", RestartJourney);
             retryLabel = restartButton.transform.Find("Label").GetComponent<Text>();
             menuButton = UguiTheme.Button(panel, "MainMenu", 86, 351, 328, 46, "返回主菜单", () => Transition("MainMenuScene"));
         }
@@ -240,10 +240,11 @@ namespace Relicfall.UI
 
         public void SetControls(bool show) { if (mainSource == null || loading) return; ShowingControls = show; RefreshPages(); }
         private void StartJourney(bool resume) { if (mainSource == null || loading) return; mainSource.StartJourney(resume); }
-        private void Transition(string scene)
+        private void RestartJourney() => Transition("GameScene", Overlay == GameOverlay.Death && JsonSaveManager.HasSave);
+        private void Transition(string scene, bool resume = false)
         {
             if (loading) return;
-            GameSaveController.ContinueRequested = false;
+            GameSaveController.ContinueRequested = resume;
             SceneTransition.Load(scene);
         }
 
@@ -414,7 +415,8 @@ namespace Relicfall.UI
                 overlayPage.alpha = Mathf.Clamp01((Time.unscaledTime - overlayAt) * 3f);
                 pauseContinue.gameObject.SetActive(pause);
                 saveButton.gameObject.SetActive(pause);
-                retryLabel.text = pause ? "重新开始" : Overlay == GameOverlay.Death ? "再次挑战" : "再来一局";
+                retryLabel.text = pause ? "重新开始" : Overlay == GameOverlay.Death ?
+                    (JsonSaveManager.HasSave ? "读取存档" : "再次挑战") : "再来一局";
                 ((RectTransform)restartButton.transform).anchoredPosition = new Vector2(86, pause ? -298 : -227);
                 ((RectTransform)menuButton.transform).anchoredPosition = new Vector2(86, pause ? -351 : -295);
                 EventSystem events = EventSystem.current;

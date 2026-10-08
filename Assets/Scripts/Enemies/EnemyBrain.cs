@@ -34,6 +34,7 @@ namespace Relicfall.Enemies
         private EnemyPerception perception;
         public string SaveId { get; private set; }
         public Health Health => health;
+        public event System.Action<EnemyBrain> Died;
         private Collider2D[] colliders;
         private float homeX;
         private float nextAttack;
@@ -210,8 +211,9 @@ namespace Relicfall.Enemies
         {
             State = EnemyState.Death;
             body.linearVelocity = Vector2.zero;
-            foreach (Collider2D hit in GetComponentsInChildren<Collider2D>()) hit.enabled = false;
+            foreach (Collider2D hit in colliders) hit.enabled = false;
             animator.Play("Death", 0, 0f);
+            Died?.Invoke(this);
         }
 
         private void SetState(EnemyState next)

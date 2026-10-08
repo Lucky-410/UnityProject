@@ -27,6 +27,8 @@ Unity 2D 动作游戏。玩家可以移动、跳跃、冲刺、进行三段连�
 | F5 | 保存进度 |
 | Escape | 关闭背包或暂停/继续 |
 
+击杀后按 F5 或在暂停菜单保存。主菜单“继续旅程”和死亡菜单“读取存档”恢复最近一次保存，包括已击败的敌人；“开始旅程”和暂停菜单“重新开始”会开启新游戏。
+
 ## 程序结构
 
 - 角色：`PlayerMotor`、`PlayerCombat`、`PlayerActionController`、`PlayerAnimationController`。
