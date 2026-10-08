@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Relicfall.Core;
 using UnityEngine;
 
 namespace Relicfall.Enemies
@@ -8,22 +7,36 @@ namespace Relicfall.Enemies
     {
         [SerializeField] private GameObject prefab;
         [SerializeField, Min(0)] private int prewarmCount = 6;
+        [SerializeField, Min(0)] private int retainedCapacity = 12;
+        [SerializeField, Min(1)] private int maxConcurrent = 24;
         [SerializeField, Min(0.01f)] private float duration = 0.35f;
-        private readonly Queue<GameObject> available = new();
-        private readonly HashSet<GameObject> active = new();
+        private SceneObjectPool<Transform> pool;
+        private Effect[] effects;
+        private int effectCount;
+        private static readonly int ExplodeState = Animator.StringToHash("Explode");
+
+        private struct Effect
+        {
+            public Transform Transform;
+            public float Expires;
+        }
 
         public static VFXPool Instance { get; private set; }
-        public int ActiveCount => active.Count;
-        public int AvailableCount => available.Count;
+        public int ActiveCount => effectCount;
+        public int AvailableCount => pool != null ? pool.AvailableCount : 0;
         public bool IsInitialized { get; private set; }
 
         private void Awake() => Initialize();
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => Instance = null;
+
         public void Initialize()
         {
-            if (IsInitialized) return;
+            if (IsInitialized || prefab == null) return;
             Instance = this;
-            for (int i = 0; i < prewarmCount; i++) available.Enqueue(Create());
+            effects = new Effect[Mathf.Max(1, maxConcurrent)];
+            pool = new SceneObjectPool<Transform>(prefab.transform, transform, prewarmCount, retainedCapacity);
             IsInitialized = true;
         }
 
@@ -32,33 +45,34 @@ namespace Relicfall.Enemies
             if (Instance == this) Instance = null;
         }
 
-        private GameObject Create()
-        {
-            GameObject effect = Instantiate(prefab, transform);
-            effect.SetActive(false);
-            return effect;
-        }
-
         public GameObject Play(Vector3 position)
         {
-            GameObject effect = available.Count > 0 ? available.Dequeue() : Create();
-            effect.transform.SetParent(null);
-            effect.transform.position = position;
-            active.Add(effect);
-            effect.SetActive(true);
-            Animator animator = effect.GetComponent<Animator>();
-            if (animator != null) animator.Play("Explode", 0, 0f);
-            StartCoroutine(ReleaseLater(effect));
-            return effect;
+            if (!IsInitialized) return null;
+            if (effectCount == effects.Length)
+            {
+                int oldest = 0;
+                for (int i = 1; i < effectCount; i++)
+                    if (effects[i].Expires < effects[oldest].Expires) oldest = i;
+                ReleaseAt(oldest);
+            }
+            Transform effect = pool.Rent(position);
+            effect.gameObject.SetActive(true);
+            if (effect.TryGetComponent(out Animator animator)) animator.Play(ExplodeState, 0, 0f);
+            effects[effectCount++] = new Effect { Transform = effect, Expires = Time.time + duration };
+            return effect.gameObject;
         }
 
-        private IEnumerator ReleaseLater(GameObject effect)
+        private void Update()
         {
-            yield return new WaitForSeconds(duration);
-            if (!active.Remove(effect)) yield break;
-            effect.SetActive(false);
-            effect.transform.SetParent(transform);
-            available.Enqueue(effect);
+            for (int i = effectCount - 1; i >= 0; i--)
+                if (effects[i].Transform == null || Time.time >= effects[i].Expires) ReleaseAt(i);
+        }
+
+        private void ReleaseAt(int index)
+        {
+            pool.Release(effects[index].Transform);
+            effects[index] = effects[--effectCount];
+            effects[effectCount] = default;
         }
 
 #if UNITY_EDITOR

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Relicfall.Core;
 using UnityEngine;
 
 namespace Relicfall.Enemies
@@ -7,21 +7,26 @@ namespace Relicfall.Enemies
     {
         [SerializeField] private EnemyProjectile prefab;
         [SerializeField, Min(0)] private int prewarmCount = 8;
-        private readonly Queue<EnemyProjectile> available = new();
-        private readonly HashSet<EnemyProjectile> active = new();
+        [SerializeField, Min(0)] private int retainedCapacity = 16;
+        private SceneObjectPool<EnemyProjectile> pool;
 
         public static ProjectilePool Instance { get; private set; }
-        public int ActiveCount => active.Count;
-        public int AvailableCount => available.Count;
+        public int ActiveCount => pool != null ? pool.ActiveCount : 0;
+        public int AvailableCount => pool != null ? pool.AvailableCount : 0;
         public bool IsInitialized { get; private set; }
 
         private void Awake() => Initialize();
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => Instance = null;
+
         public void Initialize()
         {
             if (IsInitialized) return;
+            if (prefab == null) return;
             Instance = this;
-            for (int i = 0; i < prewarmCount; i++) available.Enqueue(Create());
+            pool = new SceneObjectPool<EnemyProjectile>(prefab, transform, prewarmCount,
+                retainedCapacity, shot => shot.AttachPool(this));
             IsInitialized = true;
         }
 
@@ -30,31 +35,17 @@ namespace Relicfall.Enemies
             if (Instance == this) Instance = null;
         }
 
-        private EnemyProjectile Create()
-        {
-            EnemyProjectile shot = Instantiate(prefab, transform);
-            shot.gameObject.SetActive(false);
-            shot.AttachPool(this);
-            return shot;
-        }
-
         public EnemyProjectile Fire(Vector3 position, int direction, int damage, GameObject source)
         {
-            EnemyProjectile shot = available.Count > 0 ? available.Dequeue() : Create();
-            shot.transform.SetParent(null);
-            shot.transform.position = position;
-            active.Add(shot);
-            shot.gameObject.SetActive(true);
+            EnemyProjectile shot = pool.Rent(position);
             shot.Launch(direction, damage, source);
+            shot.gameObject.SetActive(true);
             return shot;
         }
 
         public void Release(EnemyProjectile shot)
         {
-            if (shot == null || !active.Remove(shot)) return;
-            shot.gameObject.SetActive(false);
-            shot.transform.SetParent(transform);
-            available.Enqueue(shot);
+            pool?.Release(shot);
         }
 
 #if UNITY_EDITOR

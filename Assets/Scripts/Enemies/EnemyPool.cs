@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Relicfall.Combat;
+using Relicfall.Core;
 using UnityEngine;
 
 namespace Relicfall.Enemies
@@ -8,10 +9,18 @@ namespace Relicfall.Enemies
     {
         [SerializeField] private EnemyBrain[] prefabs;
         [SerializeField, Min(0)] private int prewarmPerKind = 3;
+        [SerializeField, Min(0)] private int retainedPerKind = 8;
 
-        private readonly Dictionary<EnemyKind, Queue<EnemyBrain>> available = new();
-        private readonly HashSet<EnemyBrain> active = new();
-        public int ActiveCount => active.Count;
+        private readonly Dictionary<EnemyKind, SceneObjectPool<EnemyBrain>> pools = new();
+        public int ActiveCount
+        {
+            get
+            {
+                int count = 0;
+                foreach (var pool in pools.Values) count += pool.ActiveCount;
+                return count;
+            }
+        }
         public bool IsInitialized { get; private set; }
 
         private void Awake() => Initialize();
@@ -19,53 +28,39 @@ namespace Relicfall.Enemies
         public void Initialize()
         {
             if (IsInitialized) return;
+            if (prefabs == null) return;
             foreach (EnemyBrain prefab in prefabs)
             {
-                available[prefab.Kind] = new Queue<EnemyBrain>();
-                for (int i = 0; i < prewarmPerKind; i++)
-                    available[prefab.Kind].Enqueue(Create(prefab));
+                if (prefab == null || pools.ContainsKey(prefab.Kind)) continue;
+                pools.Add(prefab.Kind, new SceneObjectPool<EnemyBrain>(prefab, transform,
+                    prewarmPerKind, retainedPerKind, BindEnemy));
             }
             IsInitialized = true;
         }
 
-        private EnemyBrain Create(EnemyBrain prefab)
+        private void BindEnemy(EnemyBrain brain)
         {
-            EnemyBrain brain = Instantiate(prefab, transform);
-            brain.gameObject.SetActive(false);
-            brain.gameObject.AddComponent<PooledEnemy>().Bind(this);
-            return brain;
+            if (!brain.TryGetComponent(out PooledEnemy pooled)) pooled = brain.gameObject.AddComponent<PooledEnemy>();
+            pooled.Bind(this);
         }
 
         public EnemyBrain Get(EnemyKind kind, Vector3 position)
         {
-            if (!available.TryGetValue(kind, out Queue<EnemyBrain> queue))
+            if (!pools.TryGetValue(kind, out SceneObjectPool<EnemyBrain> pool))
                 throw new System.InvalidOperationException($"缺少敌人预制体：{kind}");
-            EnemyBrain brain = queue.Count > 0 ? queue.Dequeue() : Create(FindPrefab(kind));
-            brain.transform.SetParent(null);
-            brain.transform.position = position;
+            EnemyBrain brain = pool.Rent(position);
             brain.ResetForSpawn();
-            active.Add(brain);
             brain.gameObject.SetActive(true);
             return brain;
         }
 
         public void Release(EnemyBrain brain)
         {
-            if (brain == null || !active.Remove(brain)) return;
-            brain.gameObject.SetActive(false);
-            brain.transform.SetParent(transform);
-            available[brain.Kind].Enqueue(brain);
+            if (brain != null && pools.TryGetValue(brain.Kind, out var pool)) pool.Release(brain);
         }
 
         public int Available(EnemyKind kind) =>
-            available.TryGetValue(kind, out Queue<EnemyBrain> queue) ? queue.Count : 0;
-
-        private EnemyBrain FindPrefab(EnemyKind kind)
-        {
-            foreach (EnemyBrain prefab in prefabs)
-                if (prefab.Kind == kind) return prefab;
-            throw new System.InvalidOperationException($"缺少敌人预制体：{kind}");
-        }
+            pools.TryGetValue(kind, out var pool) ? pool.AvailableCount : 0;
 
 #if UNITY_EDITOR
         public void Configure(EnemyBrain[] enemyPrefabs, int prewarm)
@@ -82,7 +77,7 @@ namespace Relicfall.Enemies
         private EnemyPool pool;
         private Health health;
         private EnemyBrain brain;
-        private Coroutine releaseRoutine;
+        private float releaseAt = float.PositiveInfinity;
 
         private void Awake()
         {
@@ -97,16 +92,13 @@ namespace Relicfall.Enemies
         private void OnDisable()
         {
             health.OnDeath -= HandleDeath;
-            if (releaseRoutine != null) StopCoroutine(releaseRoutine);
-            releaseRoutine = null;
+            releaseAt = float.PositiveInfinity;
         }
 
-        private void HandleDeath() => releaseRoutine = StartCoroutine(ReleaseAfterAnimation());
-
-        private System.Collections.IEnumerator ReleaseAfterAnimation()
+        private void HandleDeath() => releaseAt = Time.time + 0.75f;
+        private void Update()
         {
-            yield return new WaitForSeconds(0.75f);
-            pool.Release(brain);
+            if (Time.time >= releaseAt && pool != null) pool.Release(brain);
         }
     }
 }

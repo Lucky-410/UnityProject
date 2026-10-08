@@ -21,6 +21,9 @@ namespace Relicfall.Combat
         public event Action OnDeath;
         public static event Action<Health, DamageInfo> OnAnyDamaged;
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => OnAnyDamaged = null;
+
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();

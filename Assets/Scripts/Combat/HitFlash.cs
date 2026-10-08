@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Relicfall.Combat
@@ -14,7 +13,8 @@ namespace Relicfall.Combat
         private Health health;
         private Color baseColor;
         private Color[] additionalBaseColors;
-        private Coroutine flashRoutine;
+        private bool flashing;
+        private float restoreAt;
 
         private void Awake()
         {
@@ -31,7 +31,12 @@ namespace Relicfall.Combat
         private void OnDisable()
         {
             health.OnDamaged -= Flash;
-            if (flashRoutine != null) StopCoroutine(flashRoutine);
+            flashing = false;
+            RestoreColors();
+        }
+
+        private void RestoreColors()
+        {
             if (target != null) target.color = baseColor;
             for (int i = 0; i < additionalBaseColors.Length; i++)
                 if (additionalTargets[i] != null) additionalTargets[i].color = additionalBaseColors[i];
@@ -40,20 +45,18 @@ namespace Relicfall.Combat
         private void Flash(DamageInfo info)
         {
             if (target == null) return;
-            if (flashRoutine != null) StopCoroutine(flashRoutine);
-            flashRoutine = StartCoroutine(FlashRoutine());
-        }
-
-        private IEnumerator FlashRoutine()
-        {
+            flashing = true;
+            restoreAt = Time.unscaledTime + duration;
             target.color = flashColor;
             for (int i = 0; i < additionalBaseColors.Length; i++)
                 if (additionalTargets[i] != null) additionalTargets[i].color = flashColor;
-            yield return new WaitForSecondsRealtime(duration);
-            if (target != null) target.color = baseColor;
-            for (int i = 0; i < additionalBaseColors.Length; i++)
-                if (additionalTargets[i] != null) additionalTargets[i].color = additionalBaseColors[i];
-            flashRoutine = null;
+        }
+
+        private void Update()
+        {
+            if (!flashing || Time.unscaledTime < restoreAt) return;
+            flashing = false;
+            RestoreColors();
         }
 
 #if UNITY_EDITOR

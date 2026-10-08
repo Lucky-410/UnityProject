@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Relicfall.Combat;
 using Relicfall.Player;
 using Relicfall.UI;

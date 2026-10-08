@@ -14,6 +14,10 @@ namespace Relicfall.Enemies
         private GameObject source;
         private float expires;
         private ProjectilePool pool;
+        private bool flying;
+        private int groundLayer;
+
+        private void Awake() => groundLayer = LayerMask.NameToLayer("Ground");
 
         public void AttachPool(ProjectilePool owner) => pool = owner;
 
@@ -23,7 +27,10 @@ namespace Relicfall.Enemies
             damage = attackDamage;
             source = owner;
             expires = Time.time + lifetime;
+            flying = true;
         }
+
+        private void OnDisable() { flying = false; source = null; }
 
         private void Update()
         {
@@ -33,6 +40,7 @@ namespace Relicfall.Enemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!flying) return;
             if (other.GetComponentInParent<PlayerMotor>() is PlayerMotor player)
             {
                 var health = player.GetComponent<Health>();
@@ -40,11 +48,13 @@ namespace Relicfall.Enemies
                     source, transform.position));
                 Recycle();
             }
-            else if (other.gameObject.layer == LayerMask.NameToLayer("Ground")) Recycle();
+            else if (other.gameObject.layer == groundLayer) Recycle();
         }
 
         private void Recycle()
         {
+            if (!flying) return;
+            flying = false;
             if (VFXPool.Instance != null) VFXPool.Instance.Play(transform.position);
             if (pool != null) pool.Release(this);
             else Destroy(gameObject);

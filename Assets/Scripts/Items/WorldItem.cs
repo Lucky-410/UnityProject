@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Relicfall.Player;
 using Relicfall.Audio;
 using UnityEngine;
@@ -32,7 +31,15 @@ namespace Relicfall.Items
         public string LegacySaveId => !string.IsNullOrEmpty(legacySaveId) ? legacySaveId : item == null ? string.Empty :
             item.name + ":" + Mathf.RoundToInt(origin.x * 1000f) + ":" +
             Mathf.RoundToInt(origin.y * 1000f);
-        public static string[] CollectedIds => collected.ToArray();
+        public static string[] CollectedIds
+        {
+            get
+            {
+                var ids = new string[collected.Count];
+                collected.CopyTo(ids);
+                return ids;
+            }
+        }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetStatics() { activeItems.Clear(); collected.Clear(); }
 
@@ -44,7 +51,9 @@ namespace Relicfall.Items
             if (ids != null)
                 foreach (string id in ids)
                     if (!string.IsNullOrEmpty(id)) collected.Add(id);
-            foreach (WorldItem worldItem in activeItems.ToArray())
+            for (int i = activeItems.Count - 1; i >= 0; i--)
+            {
+                WorldItem worldItem = activeItems[i];
                 if (worldItem != null && !worldItem.spawnedRuntime &&
                     (collected.Contains(worldItem.SaveId) || collected.Contains(worldItem.LegacySaveId)))
                 {
@@ -52,6 +61,7 @@ namespace Relicfall.Items
                     worldItem.gameObject.SetActive(false);
                     UnityEngine.Object.Destroy(worldItem.gameObject);
                 }
+            }
         }
         public static WorldItem Focused => PlayerPickupDetector.Current != null ? PlayerPickupDetector.Current.Focused : null;
 
@@ -82,21 +92,31 @@ namespace Relicfall.Items
         public bool TryPickup() => PlayerPickupDetector.Current != null && PlayerPickupDetector.Current.TryPickup(this);
         public void CompletePickup()
         {
+            if (!isActiveAndEnabled) return;
             if (!spawnedRuntime) collected.Add(SaveId);
             activeItems.Remove(this);
             AudioDirector.Instance?.PlayPickup();
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
 
-        public static SavedWorldItem[] CaptureRuntimeItems() => activeItems
-            .Where(world => world != null && world.spawnedRuntime && world.item != null)
-            .Select(world => new SavedWorldItem { instanceId = world.SaveId, itemId = world.item.StableId,
-                count = world.count, position = world.origin }).ToArray();
+        public static SavedWorldItem[] CaptureRuntimeItems()
+        {
+            var records = new List<SavedWorldItem>();
+            foreach (WorldItem world in activeItems)
+                if (world != null && world.spawnedRuntime && world.item != null)
+                    records.Add(new SavedWorldItem { instanceId = world.SaveId, itemId = world.item.StableId,
+                        count = world.count, position = world.origin });
+            return records.ToArray();
+        }
 
         public static void RestoreRuntimeItems(SavedWorldItem[] records, WorldItem prefab, System.Func<string, ItemData> find)
         {
-            foreach (WorldItem world in activeItems.ToArray())
+            for (int i = activeItems.Count - 1; i >= 0; i--)
+            {
+                WorldItem world = activeItems[i];
                 if (world != null && world.spawnedRuntime) { world.gameObject.SetActive(false); Destroy(world.gameObject); }
+            }
             if (records == null || prefab == null) return;
             var restored = new HashSet<string>();
             foreach (SavedWorldItem record in records)

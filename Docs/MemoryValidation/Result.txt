@@ -1,0 +1,52 @@
+PASS gameplay and UGUI loaded
+PASS Addressables load succeeded
+PASS 12 fixed enemies
+PASS active instances stay under pool owner
+PASS retained capacity enforced after peak
+PASS duplicate return rejected
+PASS rent returns inactive object for reset before activation
+METRIC generic pool 1000 rent/return: 0 managed bytes
+PASS generic pool hot path allocates zero managed bytes
+PASS destroying pool destroys active children
+PASS projectile owned by scene pool
+PASS projectile returns once
+PASS effects capped at 24 concurrent instances
+METRIC warmed VFX 1000 plays: 0 managed bytes
+PASS VFX playback allocates zero managed bytes after warmup
+PASS effects expire and retained cache is bounded
+PASS damage labels remain capped at 32 under burst
+PASS expired damage labels hidden
+PASS unchanged inventory does not rebuild view data
+PASS inventory opens
+PASS second equipment slot selectable
+PASS inventory closes and gameplay input resumes
+PASS damage applies flash immediately
+PASS flash expires in paused time without unpausing game
+PASS compressed music: Relicfall_Menu.wav
+PASS compressed music: Relicfall_Game.wav
+METRIC editor runtime allocation before cycles: 865397626
+PASS cycle 0 menu transition accepted
+PASS cycle 0 menu loaded
+PASS cycle 0 active pooled objects unloaded
+PASS cycle 0 scene singleton references cleared
+PASS cycle 0 scene objects and UI bindings cleared
+PASS cycle 0 inventory icon references released
+PASS cycle 0 persistent services not duplicated
+PASS cycle 0 gameplay transition accepted
+PASS cycle 0 gameplay reloaded
+PASS cycle 0 enemy and item registry counts stable
+PASS cycle 0 UGUI rebound and gameplay unlocked
+PASS cycle 1 menu transition accepted
+PASS cycle 1 menu loaded
+PASS cycle 1 active pooled objects unloaded
+PASS cycle 1 scene singleton references cleared
+PASS cycle 1 scene objects and UI bindings cleared
+PASS cycle 1 inventory icon references released
+PASS cycle 1 persistent services not duplicated
+PASS cycle 1 gameplay transition accepted
+PASS cycle 1 gameplay reloaded
+PASS cycle 1 enemy and item registry counts stable
+PASS cycle 1 UGUI rebound and gameplay unlocked
+METRIC editor runtime allocation after cycles: 859666489
+PASS no engine errors during stress and scene transitions
+SUCCESS 47 checks, 0 runtime errors

@@ -1,59 +1,41 @@
-# 程序结构与逻辑优化
+# 程序结构
 
-## 角色动作
+项目按角色、战斗、敌人、物品、界面、音效和存档划分脚本目录。场景业务组件随场景创建和销毁；UIManager、AudioDirector、LoadingManager 常驻。
 
-`Assets/Scripts/Player/PlayerActionController.cs` 统一管理 Free、Attack、Dash、Hurt、Dead 的进入和中断规则；Grounded、Rising、Falling 是独立移动状态。移动脚本继续负责刚体，战斗脚本继续负责攻击帧和连击窗口。
+## 角色与战斗
 
-- 冲刺可打断攻击，立即关闭攻击碰撞盒并清空连击缓存。
-- 冲刺期间拒绝新攻击；受伤期间拒绝攻击、冲刺和跳跃，保留受击冲量。
-- 死亡禁止动作，恢复进度时重置动作、物理和动画状态。
-- 打开背包清理正在进行的攻击/冲刺，避免装备变化影响旧攻击。
-- 游戏中的武器切换在自由动作状态执行；背包仍可选择空的 1、2 号装备栏。
+PlayerMotor 处理刚体移动、坡面、跳跃缓冲和冲刺。PlayerActionController 集中控制 Free、Attack、Dash、Hurt、Dead 的互斥与中断规则，移动状态另分为 Grounded、Rising、Falling。
 
-Animator `Assets/Animations/Player/PlayerMovement.controller` 已整理为 Locomotion、Combat、Actions 三个子状态机。攻击播放使用缓存的完整状态路径哈希；逐帧动画保留原有素材与攻击事件。
+PlayerCombat 接收攻击输入，利用动画事件开启攻击盒、开放连击窗口和结束攻击。窗口内再次按 J 会推进到下一段，最多三段。冲刺和受伤会关闭旧攻击盒并清空连击缓存。EquipmentController 管理两个武器栏；战斗切换只在自由动作状态执行，背包可以选择空栏作为装备目标。
 
-## 集中拾取
+Animator 使用 Locomotion、Combat、Actions 三个子状态机。攻击播放使用完整状态路径的哈希，避免同名状态冲突。
 
-`PlayerPickupDetector.cs` 在玩家侧统一处理目标搜索和拾取。`WorldItem.cs` 负责物品展示、活动物品登记和拾取完成；UI 读取相同的目标缓存。每帧最多进行一次常规目标扫描，成功拾取后清空目标，避免一次按键拾取多个物品。
+## 敌人与对象池
 
-因此 N 个地面物品的目标扫描由重复遍历全部物品，改为一次 O(N) 遍历。物品资源引用和数量直接交给 Inventory.TryAdd，成功入包后才删除地面实例。
+EnemyPerception 读取玩家引用，并检测距离、高度、遮挡、前方墙体和落脚点。EnemyBrain 根据这些结果切换巡逻、追击、攻击、受伤和死亡状态。
 
-## UI 与输入
+DragonKnightBoss 管理追击、近战、喷火和第二阶段；BossAttackSettings 保存攻击参数。存档恢复后从安全的待机或追击状态继续。
 
-`UIManager` 保留常驻单例、页面显隐和场景协调。`InventoryPresenter.cs` 订阅背包、生命、装备和选择变化；界面可见且数据变化时读取完整显示数据，冲刺进度独立刷新。
+SceneObjectPool<T> 负责实例创建、取出、归还和空闲缓存容量。EnemyPool 按敌人类型建池，ProjectilePool 管理投射物，VFXPool 管理限时特效。活动实例始终挂在池下，销毁池时会一起销毁。空闲缓存达到上限后销毁多余实例，战斗投射物不限制并发数量。
 
-`UIInputRouter.cs` 使用独立 InputActionMap 集中处理 I、E、H、F/G/R、背包数字键、方向导航、Escape 和 F5。玩家 Gameplay Map 继续负责移动、跳跃、冲刺、攻击和游戏内武器切换。上下文切换会清空待处理命令，背包打开时关闭 Gameplay 输入；UGUI 原生输入模块继续处理按钮导航和提交。
+## 拾取与背包
 
-菜单初始清空焦点，首次方向键才选择有效按钮，保留用户要求的交互效果。
+PlayerPickupDetector 每帧最多搜索一次附近物品，HUD 读取同一目标。WorldItem 保存 ItemData 引用、数量和实例标识；拾取时把该引用和数量交给 Inventory.TryAdd，成功后立即停用地面物品并销毁。
 
-## 时间与 AI
+Inventory 保存固定容量的物品格，负责堆叠、移除、装备、卸下和药水。InventoryPresenter 订阅数据变化，在界面可见且数据改变时刷新。切换场景时清空界面持有的物品和图标引用。
 
-`Assets/Scripts/Feedback/GameTime.cs` 是 Time.timeScale 的统一写入入口。暂停请求优先于短暂命中停顿，停顿超时不会解除仍有效的暂停；换场景时清理短暂请求。
+## 输入、界面与时间
 
-`PlayerContext.cs` 登记场景玩家与生命引用。`EnemyPerception.cs` 负责目标有效性、距离/高度/遮挡和前方地面/墙体检测，EnemyBrain 负责状态转换与攻击执行。
+PlayerInputReader 的 Gameplay 操作组负责移动、跳跃、攻击、冲刺和武器切换。UIInputRouter 的独立操作组负责背包、拾取、药水、暂停和存档快捷键；上下文改变时清空未消费操作。
 
-Boss 攻击前摇、持续时间、伤害和范围移入 `Assets/Data/Boss/DragonKnightAttacks.asset`，可在 Inspector 调整。恢复进度后，敌人与 Boss 从安全的巡逻/追击状态继续，不恢复攻击动画的中间帧。
+UIManager 管理页面显隐和输入权限，InventoryUguiView 显示背包与 HUD，DamageNumberPresenter 维护固定数量的伤害文字。UguiFeedbackButton 使用 UGUI 原生点击与导航，并提供悬停、焦点、选中、按下和禁用表现。
 
-## 新版存档
+GameTime 统一写入 Time.timeScale。暂停优先于命中停顿；解除命中停顿不会解除暂停。
 
-继续使用 JsonUtility，新写入版本为 2，兼容版本 1。ItemData、WeaponData 用资源 GUID 作为稳定 ID，保留旧名称别名；场景物品和固定敌人生成点配置独立稳定 ID。
+## 存档
 
-新增记录：
+GameSaveController 收集玩家、背包、装备、地面物品、固定敌人和 Boss 进度，JsonSaveManager 使用 JsonUtility 读写版本 2，兼容版本 1。物品、武器和生成点使用稳定 ID，旧资源名称作为兼容别名。
 
-- 地上丢弃/掉落物品的实例 ID、物品 ID、数量和位置。
-- 固定敌人的 ID、位置、剩余血量与死亡结果。
-- Boss 血量、是否开始遭遇、第二阶段和是否击败。
+写入先生成同目录临时文件，再原子替换，上一份保存为 .bak。地图版本不匹配时恢复物品和装备，世界位置从当前地图出生点开始。
 
-地图版本改变时仍恢复玩家物品/装备，世界位置与遭遇进度从新地图开始。旧版已拾取物品标识可迁移到新的场景 ID。
-
-写入先生成同目录临时文件，再原子替换；上一份存档保留在原路径加 `.bak` 的文件中。主文件损坏或缺少必需数据时尝试有效备份。真实存档路径保持不变。
-
-## 配置与验证
-
-手动菜单“Tools/Relicfall/配置角色状态与存档标识”补充玩家/敌人组件、资源标识及动画分组，可重复执行；它不自动进入或退出游戏。
-
-回归记录在 `Docs/ArchitectureValidation/Result.txt`，测试 JSON 和备份也位于该目录。验证使用单独测试文件，不改写真实玩家存档。临时检查脚本在验证完成后移出 Assets。
-
-以上针对重复扫描、数据刷新和职责边界；没有将本次检查等同于 Profiler 的帧率/内存收益测量。
-
-本次普通主菜单进入关卡后，56 项功能回归全部通过。测试包含 InputSystem 注入的键盘事件、原生 UGUI 提交、真实 Physics2D 遮挡、JSON 写入和备份恢复。后台输入设置在检查结束后恢复，临时键盘移除。真实存档最后写入时间保持 2026-10-06 22:02:40，大小 1004 字节。
+文件位于 Application.persistentDataPath/relicfall-save.json。Unity 菜单“Tools/Relicfall/配置角色状态与存档标识”用于补齐组件、资源标识及动画分组。

@@ -135,6 +135,22 @@ namespace Relicfall.UI
                 button.navigation = new Navigation { mode = Navigation.Mode.None };
         }
 
+        public void ClearSceneData()
+        {
+            lastFirst = lastSecond = null;
+            lastPotion = null;
+            System.Array.Clear(lastItems, 0, lastItems.Length);
+            System.Array.Clear(lastCounts, 0, lastCounts.Length);
+            foreach (SlotView slot in slots) slot?.Refresh(null, -1, false);
+            foreach (SlotView slot in hudQuick) slot?.Refresh(null, -1, false);
+            foreach (SlotView slot in bagQuick) slot?.Refresh(null, -1, false);
+            UguiTheme.Icon(portrait, null);
+            UguiTheme.Icon(itemIcon, null);
+            lastHealth = lastMaxHealth = lastUsed = lastCapacity = -1;
+            lastSelected = lastFilter = lastActive = lastPotionCount = -1;
+            hudRefreshed = bagWasVisible = false;
+        }
+
         public void Refresh(InventoryViewData data, int selected, int filter)
         {
             bool healthChanged = lastHealth != data.Health || lastMaxHealth != data.MaxHealth;

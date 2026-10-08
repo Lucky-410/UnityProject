@@ -23,6 +23,9 @@ namespace Relicfall.Audio
         private AudioSource effectsSource;
         public static AudioDirector Instance { get; private set; }
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => Instance = null;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -45,6 +48,7 @@ namespace Relicfall.Audio
 
         private void OnEnable()
         {
+            if (Instance != this) return;
             SceneManager.activeSceneChanged += ChangeMusic;
             Health.OnAnyDamaged += PlayDamage;
         }
@@ -68,8 +72,8 @@ namespace Relicfall.Audio
 
         private void PlayDamage(Health target, DamageInfo info)
         {
-            Play(target.GetComponent<PlayerMotor>() != null ? playerHit : enemyHit,
-                target.GetComponent<PlayerMotor>() != null ? 0.8f : 0.65f);
+            bool player = target.TryGetComponent<PlayerMotor>(out _);
+            Play(player ? playerHit : enemyHit, player ? 0.8f : 0.65f);
         }
 
         private void Play(AudioClip clip, float volume = 1f)

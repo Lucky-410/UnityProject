@@ -23,6 +23,9 @@ namespace Relicfall.UI
         public static bool IsLoading => instance != null && instance.loading;
         public static float Progress => instance != null ? instance.progress : 0f;
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => instance = null;
+
         public static bool Load(string sceneName)
         {
             if (string.IsNullOrWhiteSpace(sceneName)) return false;
@@ -83,7 +86,10 @@ namespace Relicfall.UI
 
             AsyncOperationHandle<IList<GameObject>> pendingPreload = default;
             bool hasPendingPreload = destination == "GameScene";
-            if (hasPendingPreload)
+            bool reusePreload = hasPendingPreload && hasGamePreload && gamePreload.IsValid() &&
+                gamePreload.Status == AsyncOperationStatus.Succeeded;
+            if (reusePreload) pendingPreload = gamePreload;
+            if (hasPendingPreload && !reusePreload)
             {
                 pendingPreload = Addressables.LoadAssetsAsync<GameObject>("game-preload", null);
                 while (!pendingPreload.IsDone)
@@ -101,7 +107,8 @@ namespace Relicfall.UI
             }
 
             AsyncOperationHandle<SceneInstance> scene =
-                Addressables.LoadSceneAsync(destination, LoadSceneMode.Single);
+                Addressables.LoadSceneAsync(destination, LoadSceneMode.Single,
+                    SceneReleaseMode.ReleaseSceneWhenSceneUnloaded);
             while (!scene.IsDone)
             {
                 progress = Mathf.Max(progress, 0.60f + scene.PercentComplete * 0.39f);
@@ -110,15 +117,17 @@ namespace Relicfall.UI
             if (scene.Status != AsyncOperationStatus.Succeeded)
             {
                 Addressables.Release(scene);
-                if (hasPendingPreload) Addressables.Release(pendingPreload);
+                if (hasPendingPreload && !reusePreload) Addressables.Release(pendingPreload);
                 Fail("场景切换失败");
                 yield break;
             }
 
             // 新场景加载后，旧场景中的对象池已销毁，此时释放旧预加载句柄。
-            if (hasGamePreload && gamePreload.IsValid()) Addressables.Release(gamePreload);
+            if (!reusePreload && hasGamePreload && gamePreload.IsValid()) Addressables.Release(gamePreload);
             gamePreload = pendingPreload;
             hasGamePreload = hasPendingPreload;
+            // 菜单阶段不再引用关卡对象，利用加载遮罩释放未使用的纹理和音频。
+            if (!hasGamePreload) yield return Resources.UnloadUnusedAssets();
             while (Time.realtimeSinceStartup - started < 0.60f) yield return null;
             progress = 1f;
             loading = false;
@@ -141,6 +150,7 @@ namespace Relicfall.UI
 
         private void OnDestroy()
         {
+            if (instance != this) return;
             if (hasGamePreload && gamePreload.IsValid()) Addressables.Release(gamePreload);
             if (instance == this) instance = null;
         }

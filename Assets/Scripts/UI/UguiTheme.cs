@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 namespace Relicfall.UI
 {
-    // 只创建或绑定 UGUI 控件；页面创建一次，之后更新数据和激活状态。
     public static class UguiTheme
     {
         public static readonly Color Ink = new Color(0.025f, 0.045f, 0.10f, 0.96f);

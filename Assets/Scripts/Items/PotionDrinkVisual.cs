@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Relicfall.Items
@@ -8,9 +7,11 @@ namespace Relicfall.Items
         [SerializeField] private Sprite[] frames;
         [SerializeField] private SpriteRenderer overlay;
         [SerializeField, Min(1f)] private float framesPerSecond = 18f;
-        private Coroutine routine;
+        private bool playing;
+        private float startedAt;
+        private int displayedFrame = -1;
 
-        public bool IsPlaying => routine != null;
+        public bool IsPlaying => playing;
 
         private void Awake()
         {
@@ -20,27 +21,32 @@ namespace Relicfall.Items
         public void Play()
         {
             if (frames == null || frames.Length == 0 || overlay == null) return;
-            if (routine != null) StopCoroutine(routine);
-            routine = StartCoroutine(Animate());
+            playing = true;
+            startedAt = Time.time;
+            displayedFrame = 0;
+            overlay.sprite = frames[0];
+            overlay.enabled = true;
         }
 
-        private IEnumerator Animate()
+        private void Update()
         {
-            overlay.enabled = true;
-            foreach (Sprite frame in frames)
+            if (!playing) return;
+            int frame = Mathf.FloorToInt((Time.time - startedAt) * framesPerSecond);
+            if (frame >= frames.Length)
             {
-                overlay.sprite = frame;
-                yield return new WaitForSeconds(1f / framesPerSecond);
+                playing = false;
+                overlay.enabled = false;
+                return;
             }
-            overlay.enabled = false;
-            routine = null;
+            if (frame == displayedFrame) return;
+            displayedFrame = frame;
+            overlay.sprite = frames[frame];
         }
 
         private void OnDisable()
         {
-            if (routine != null) StopCoroutine(routine);
             if (overlay != null) overlay.enabled = false;
-            routine = null;
+            playing = false;
         }
 
 #if UNITY_EDITOR

@@ -1,6 +1,6 @@
 # 坠遗之境 · Roguelite Demo
 
-Unity 2D 动作游戏项目，包含角色移动、跳跃、冲刺、三段连击、武器切换、背包与拾取、敌人 AI、Boss、对象池、音效、UGUI 页面管理及存档。
+Unity 2D 动作游戏。玩家可以移动、跳跃、冲刺、进行三段连击，通过背包装备两把武器，并在战斗中切换。关卡包含巡逻敌人、远程敌人和双阶段 Boss。
 
 ## 打开项目
 
@@ -32,13 +32,14 @@ Unity 2D 动作游戏项目，包含角色移动、跳跃、冲刺、三段连�
 - 角色：`PlayerMotor`、`PlayerCombat`、`PlayerActionController`、`PlayerAnimationController`。
 - 拾取与背包：`PlayerPickupDetector`、`WorldItem`、`Inventory`、`EquipmentController`。
 - UI：`UIManager` 单例、`InventoryPresenter` 事件刷新、`UIInputRouter` 输入映射、`UguiFeedbackButton` 交互反馈。
+- 对象池：`SceneObjectPool<T>` 管理实例复用和缓存容量，敌人、投射物、特效各自管理业务状态。
 - 敌人：`EnemyBrain`、`EnemyPerception`、固定生成点和敌人/投射物/特效对象池。
 - Boss：`DragonKnightBoss`，攻击参数位于 `Assets/Data/Boss/DragonKnightAttacks.asset`。
 - 存档：`GameSaveController`、`JsonSaveManager`；版本 2 支持稳定 ID、地面物品、固定敌人和 Boss 进度，兼容版本 1。
 - 场景加载：`LoadingManager` 使用 Addressables。
 - 音效与时间：`AudioDirector`、`CombatFeedback`、`GameTime`。
 
-详见 [结构优化说明](Docs/Architecture_Optimization.md)、[UGUI 管理](Docs/UGUI_Migration.md)、[UI 交互](Docs/UI_Interaction.md)和[美术与平台配置](Docs/UI_Art_and_Platforms.md)。56 项回归记录位于 [Result.txt](Docs/ArchitectureValidation/Result.txt)。
+代码职责见 [程序结构](Docs/Architecture_Optimization.md)。UI 见 [页面管理](Docs/UGUI_Migration.md)、[按钮交互](Docs/UI_Interaction.md)和[美术与平台配置](Docs/UI_Art_and_Platforms.md)。资源生命周期和内存调整见 [资源与内存](Docs/Resource_Lifetime.md)。
 
 ## 构建
 

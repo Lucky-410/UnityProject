@@ -5,14 +5,12 @@ using Relicfall.Save;
 using Relicfall.Feedback;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Relicfall.UI
 {
-    // 唯一的页面管理器：常驻 Canvas，场景业务组件在启停时绑定/解绑。
     [DefaultExecutionOrder(-300)]
     public sealed class UIManager : MonoBehaviour
     {
@@ -50,7 +48,7 @@ namespace Relicfall.UI
         public InventoryUI InventoryController => inventorySource;
 
         private Canvas canvas;
-        private RectTransform safeArea, damageRoot;
+        private RectTransform safeArea;
         private CanvasGroup menu, controls, overlayPage, loadingPage, bossPage, noticePage, pickupPage;
         private MainMenuUI mainSource;
         private InventoryUI inventorySource;
@@ -63,19 +61,16 @@ namespace Relicfall.UI
         private RawImage backdrop;
         private RectTransform noticePanel;
         private CanvasGroup backdropGroup;
-        private readonly List<DamageNumber> numbers = new();
+        private DamageNumberPresenter damageNumbers;
+        private readonly List<Button> navigationButtons = new(8);
+        private Camera gameplayCamera;
+        private WorldItem lastPickup;
+        private int lastPickupCount;
+        private Image bossFill;
         private bool initialized, loading, bossAppeared, gateDirty;
         private float overlayAt, noticeUntil, bossAt;
         private Vector2 lastScreen;
         private Rect lastSafe;
-
-        private sealed class DamageNumber
-        {
-            public Text Text;
-            public Vector3 Point;
-            public float Born;
-            public bool Active;
-        }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetStatics()
@@ -125,8 +120,7 @@ namespace Relicfall.UI
             InventoryView = UguiTheme.Component<InventoryUguiView>(gameObject);
             InventoryView.Build(this, safeArea);
             BuildBoss();
-            damageRoot = UguiTheme.Stretch(safeArea, "DamageNumbers");
-            for (int i = 0; i < 20; i++) CreateNumber();
+            damageNumbers = new DamageNumberPresenter(UguiTheme.Stretch(safeArea, "DamageNumbers"), 32);
             BuildOverlay();
             noticePage = UguiTheme.Page(safeArea, "Notice");
             RectTransform notice = UguiTheme.Panel(noticePage.transform, "Panel", -210, -180, 420, 42);
@@ -148,7 +142,6 @@ namespace Relicfall.UI
                 eventRoot = go.transform;
             }
             var module = eventRoot.GetComponent<InputSystemUIInputModule>();
-            // 默认操作绑定鼠标、键盘与手柄，不依赖旧输入系统。
             if (Application.isPlaying) module.AssignDefaultActions();
             RefreshPages();
         }
@@ -157,8 +150,8 @@ namespace Relicfall.UI
         {
             menu = UguiTheme.Page(safeArea, "MainMenu");
             RectTransform panel = UguiTheme.Panel(menu.transform, "Panel", 106, 99, 482, 523);
-            UguiTheme.Header(panel, "Title", 36, 54, 410, 70, "遗物之陨", 46);
-            UguiTheme.Label(panel, "Subtitle", 39, 131, 408, 29, "暗影深处，遗物正在苏醒", 18);
+            UguiTheme.Header(panel, "Title", 36, 54, 410, 70, "坠遗之境", 46);
+            UguiTheme.Label(panel, "Subtitle", 39, 131, 408, 29, "深入遗迹，挑战龙焰骑士", 18);
             continueButton = UguiTheme.Button(panel, "Continue", 59, 216, 364, 46, "继续旅程", () => StartJourney(true));
             UguiTheme.Button(panel, "Start", 59, 278, 364, 46, "开始旅程", () => StartJourney(false));
             UguiTheme.Button(panel, "Controls", 59, 340, 364, 46, "操作说明", () => SetControls(true));
@@ -196,7 +189,7 @@ namespace Relicfall.UI
         {
             loadingPage = UguiTheme.Page(safeArea, "Loading", true);
             RectTransform panel = CenterPanel(loadingPage.transform, "Panel", 700, 180);
-            UguiTheme.Header(panel, "Title", 40, 20, 620, 55, "踏入遗物之陨");
+            UguiTheme.Header(panel, "Title", 40, 20, 620, 55, "加载关卡");
             loadingDetail = UguiTheme.Label(panel, "Detail", 40, 80, 620, 28, "", 16,
                 UguiTheme.Pale, TextAnchor.MiddleCenter);
             loadingBar = UguiTheme.Bar(panel, "Progress", 70, 132, 560, 18, UguiTheme.Gold);
@@ -212,6 +205,7 @@ namespace Relicfall.UI
             bossPhase = UguiTheme.Label(panel, "Phase", 325, 11, 164, 28, "", 14,
                 UguiTheme.Muted, TextAnchor.MiddleRight);
             bossBar = UguiTheme.Bar(panel, "Health", 21, 46, 468, 18, UguiTheme.Red);
+            bossFill = bossBar.fillRect.GetComponent<Image>();
         }
 
         public void BindMainMenu(MainMenuUI source)
@@ -328,25 +322,7 @@ namespace Relicfall.UI
             noticeText.text = message;
             noticeUntil = Time.unscaledTime + seconds;
         }
-        private void CreateNumber()
-        {
-            Text text = UguiTheme.Label(damageRoot, "Number" + numbers.Count, 0, 0, 100, 40,
-                "", 26, UguiTheme.Gold, TextAnchor.MiddleCenter);
-            ((RectTransform)text.transform).anchorMin = ((RectTransform)text.transform).anchorMax = Vector2.one * 0.5f;
-            ((RectTransform)text.transform).pivot = Vector2.one * 0.5f;
-            text.gameObject.SetActive(false);
-            numbers.Add(new DamageNumber { Text = text });
-        }
-        public void ShowDamageNumber(Vector3 point, int damage, bool player)
-        {
-            DamageNumber number = numbers.Find(n => !n.Active);
-            if (number == null) { CreateNumber(); number = numbers[numbers.Count - 1]; }
-            number.Point = point;
-            number.Born = Time.unscaledTime;
-            number.Active = true;
-            number.Text.text = damage.ToString();
-            number.Text.color = player ? UguiTheme.Red : UguiTheme.Gold;
-        }
+        public void ShowDamageNumber(Vector3 point, int damage, bool player) => damageNumbers.Show(point, damage, player);
 
         private void SceneChanged(Scene previous, Scene next)
         {
@@ -356,7 +332,9 @@ namespace Relicfall.UI
             InventoryPresenter.Bind(inventorySource, InventoryView);
             if (gameSource != null && gameSource.gameObject.scene != next) gameSource = null;
             if (bossSource != null && bossSource.gameObject.scene != next) { bossSource = null; boss = null; bossAppeared = false; }
-            foreach (DamageNumber number in numbers) number.Active = false;
+            damageNumbers.Clear();
+            gameplayCamera = Camera.main;
+            lastPickup = null;
             noticeUntil = 0;
             Overlay = GameOverlay.None;
             GameTime.ClearTransient();
@@ -406,7 +384,8 @@ namespace Relicfall.UI
             GameObject selected = events.currentSelectedGameObject;
             if (selected != null && selected.activeInHierarchy && selected.transform.IsChildOf(page.transform) &&
                 selected.TryGetComponent(out Button current) && current.IsInteractable()) return;
-            foreach (Button button in page.GetComponentsInChildren<Button>())
+            page.GetComponentsInChildren(false, navigationButtons);
+            foreach (Button button in navigationButtons)
                 if (button.IsActive() && button.IsInteractable()) { events.SetSelectedGameObject(button.gameObject); break; }
         }
 
@@ -431,7 +410,7 @@ namespace Relicfall.UI
             {
                 bool pause = Overlay == GameOverlay.Pause;
                 overlayHeading.text = pause ? "暂  停" : Overlay == GameOverlay.Death ? "旅途终结" : "胜  利";
-                overlayDetail.text = pause ? "片刻休整，再次踏入暗影" : Overlay == GameOverlay.Death ? "火光熄灭，但旅途仍可重来" : "龙焰已熄，遗物仍在前方";
+                overlayDetail.text = pause ? "游戏已暂停" : Overlay == GameOverlay.Death ? "本次挑战结束" : "已击败龙焰骑士";
                 overlayPage.alpha = Mathf.Clamp01((Time.unscaledTime - overlayAt) * 3f);
                 pauseContinue.gameObject.SetActive(pause);
                 saveButton.gameObject.SetActive(pause);
@@ -473,10 +452,10 @@ namespace Relicfall.UI
                 bossPhase.text = boss.PhaseTwo ? "第二阶段" : "首领";
                 bossPhase.color = boss.PhaseTwo ? new Color(1, 0.48f, 0.29f) : UguiTheme.Muted;
                 bossBar.SetValueWithoutNotify((float)boss.Health.CurrentHealth / Mathf.Max(1, boss.Health.MaxHealth));
-                bossBar.fillRect.GetComponent<Image>().color = boss.PhaseTwo ? new Color(0.92f, 0.34f, 0.17f) : UguiTheme.Red;
+                bossFill.color = boss.PhaseTwo ? new Color(0.92f, 0.34f, 0.17f) : UguiTheme.Red;
                 bossPage.alpha = Mathf.Clamp01((Time.unscaledTime - bossAt) * 2.5f);
             }
-            loadingDetail.text = LoadingManager.Error ?? "正在穿越暗影…";
+            loadingDetail.text = LoadingManager.Error ?? "正在准备场景…";
             loadingBar.SetValueWithoutNotify(LoadingManager.Progress);
             loadingBar.gameObject.SetActive(LoadingManager.Error == null);
             retryButton.gameObject.SetActive(LoadingManager.Error != null);
@@ -487,27 +466,15 @@ namespace Relicfall.UI
             if (inventorySource != null && !IsInventoryOpen && !BlocksGameplay)
             {
                 WorldItem focused = WorldItem.Focused;
-                if (focused != null && focused.Item != null)
+                if (focused != null && focused.Item != null && (focused != lastPickup || focused.Count != lastPickupCount))
                 {
+                    lastPickup = focused;
+                    lastPickupCount = focused.Count;
                     pickupText.text = $"E 拾取  {focused.Item.DisplayName} ×{focused.Count}";
                 }
             }
-            Camera camera = Camera.main;
-            foreach (DamageNumber number in numbers)
-            {
-                float age = Time.unscaledTime - number.Born;
-                if (age > 0.72f) number.Active = false;
-                bool show = number.Active && camera != null && !BlocksGameplay && !IsInventoryOpen;
-                if (show)
-                {
-                    Vector3 screen = camera.WorldToScreenPoint(number.Point);
-                    Vector2 local = Vector2.zero;
-                    show = screen.z >= 0 && RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                        damageRoot, screen, null, out local);
-                    if (show) ((RectTransform)number.Text.transform).anchoredPosition = local + Vector2.up * age * 55f;
-                }
-                if (number.Text.gameObject.activeSelf != show) number.Text.gameObject.SetActive(show);
-            }
+            if (gameplayCamera == null && inventorySource != null) gameplayCamera = Camera.main;
+            damageNumbers.Tick(gameplayCamera, !BlocksGameplay && !IsInventoryOpen);
         }
     }
 }

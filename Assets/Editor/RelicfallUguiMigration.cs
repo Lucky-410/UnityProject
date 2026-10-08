@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 namespace Relicfall.Editor
 {
-    // 仅保留手动生成工具，不订阅运行模式事件，不自动切换或停止游戏。
     public static class RelicfallUguiMigration
     {
         private const string PrefabPath = "Assets/Resources/UI/RelicfallUI.prefab";
@@ -57,11 +56,5 @@ namespace Relicfall.Editor
             AssetDatabase.SaveAssets();
         }
 
-        [InitializeOnLoadMethod]
-        private static void ClearOldValidationFlags()
-        {
-            SessionState.SetBool("Relicfall.UguiValidation.Running", false);
-            SessionState.SetBool("Relicfall.UguiValidation.Restore", false);
-        }
     }
 }

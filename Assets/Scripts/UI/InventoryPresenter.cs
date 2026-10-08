@@ -15,6 +15,7 @@ namespace Relicfall.UI
             source = controller; view = target; dirty = true;
             wasHud = wasBag = false;
             if (source != null) source.ViewChanged += Changed;
+            else view?.ClearSceneData();
         }
         private void Changed() => dirty = true;
         private void OnDestroy() { if (source != null) source.ViewChanged -= Changed; }
